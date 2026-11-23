@@ -26,7 +26,6 @@ MIN_POSTING_CHARS = 40  # less text than this is not a posting (a bot page, an e
 SNIPPET_CHARS = 280
 CHECK_PAGE_SIZE = 500  # most postings asked of a board when it is added
 MAX_UNANSWERED = 3  # postings in a row that got no answer before the source stops
-NOT_READ = ("hn_hiring", "yc")  # kinds added without a read
 
 
 # --- sources.json --------------------------------------------------------------------------------
@@ -82,47 +81,21 @@ def check(kind, url, http=None):
     """Check a job source the way a run will read it, without storing anything: the address must
     pass the adapter's own check, and the source is read once. `{kind, url, name, jobs, titles}`.
 
-    - a company board: its first listing page, no role filter; refused when the board does not exist
-      (404 / 410); a board with no open job is accepted;
-    - `hn_hiring`, `yc`: not read;
-    - `career_page`: refused when no posting is found; the message names the board the page points
-      to when there is one."""
+    The board's first listing page is read, no role filter; refused when the board does not exist
+    (404 / 410); a board with no open job is accepted."""
     checked = sources.check_source((kind or "").strip(), url or "")
     source = {"id": 0, "kind": checked["kind"], "url": checked["url"], "name": checked["name"]}
-    titles = []
-    if source["kind"] not in NOT_READ:
-        label = kind_label(source["kind"])
-        is_page = source["kind"] == "career_page"
-        adapter = sources.adapter_for(source, http)
-        found, failure = [], None
-        try:
-            found = adapter.search(prefs_model.default(), None, CHECK_PAGE_SIZE)["candidates"]
-        except (Fail, net.HttpError) as err:
-            failure = err
-        if failure is not None and not is_page:
-            if _status_of(failure) in (404, 410):
-                raise Fail(f"no such board on {label}: check the address")
-            if _needs_browser(failure):
-                raise Fail(f"the {label} board needs a browser: {_message(failure)}", hint=BROWSER_HINT, needs_browser=True)
-            raise Fail(f"checking the {label} board: {_message(failure)}", hint="a network failure: try again later")
-        if is_page and not found:
-            # A page that embeds a board names it even when the page itself could not be read.
-            hints = adapter.board_hints()
-            if hints:
-                board = hints[0]
-                name = board.get("label") or kind_label(board.get("kind", ""))
-                raise Fail(
-                    f"This page lists its jobs on {name}: add the {name} board ({board.get('url', '')})",
-                    hint=f"jobpilot.py source add --kind {board.get('kind', '')} --url {board.get('url', '')}",
-                    board={"kind": board.get("kind", ""), "url": board.get("url", ""), "label": name},
-                )
-            if failure is not None and _needs_browser(failure):
-                raise Fail(f"the page needs a browser, a login or shows a captcha: {_message(failure)}",
-                           hint=BROWSER_HINT, needs_browser=True)
-            if failure is not None:
-                raise Fail(f"reading the job page: {_message(failure)}")
-            raise Fail("no job postings found on this page", hint="give the address of the page that lists the jobs")
-        titles = [candidate.get("title", "") for candidate in found]
+    label = kind_label(source["kind"])
+    adapter = sources.adapter_for(source, http)
+    try:
+        found = adapter.search(prefs_model.default(), None, CHECK_PAGE_SIZE)["candidates"]
+    except (Fail, net.HttpError) as failure:
+        if _status_of(failure) in (404, 410):
+            raise Fail(f"no such board on {label}: check the address")
+        if _needs_browser(failure):
+            raise Fail(f"the {label} board needs a browser: {_message(failure)}", hint=BROWSER_HINT, needs_browser=True)
+        raise Fail(f"checking the {label} board: {_message(failure)}", hint="a network failure: try again later")
+    titles = [candidate.get("title", "") for candidate in found]
     return {"kind": source["kind"], "url": source["url"], "name": source["name"], "jobs": len(titles), "titles": titles}
 
 
@@ -259,12 +232,6 @@ def _run_source(source, prefs, seen, limit, http):
         if cursor is None or taken >= limit or pages >= PAGES_PER_RUN or scanned >= PAGES_PER_RUN * SCAN_FACTOR:
             break
     counts["status"] = "ok"
-    if counts["found"] == 0:
-        # A page that points to a job board (a careers page embedding Greenhouse) says so.
-        hints = adapter.board_hints()
-        if hints:
-            label = hints[0].get("label") or kind_label(hints[0].get("kind", ""))
-            counts["status"] = f"No postings on the page. It links to a {label} board: add it as a {label} source"
     return counts
 
 

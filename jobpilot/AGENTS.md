@@ -1,7 +1,7 @@
 # JobPilot
 
 One Agent Skill (this folder, `jobpilot/` in the skills repository): the user's documents -> profile -> tailored CV (every fact checked) ->
-job discovery and scoring -> apply help -> status tracking -> market trends. The host agent is the LLM; the
+job discovery and scoring -> apply help -> status tracking. The host agent is the LLM; the
 Python scripts do everything that must not be left to a model. There is no app, no server and no API key.
 
 ## Layout
@@ -12,8 +12,8 @@ Paths are relative to this folder.
 jobpilot/
   SKILL.md               frontmatter (name, description), the rules, a table that routes to references/
   references/            instructions for the host agent, one file per workflow, read on demand:
-                         profile, tailor, preferences, discover, apply, track, trends, schemas
-  assets/                cv.typ (self-contained, no package import), trends.typ, example-cv.json
+                         profile, tailor, preferences, discover, apply, track, schemas
+  assets/                cv.typ (self-contained, no package import), example-cv.json
   scripts/jobpilot.py    the one entry point: `jobpilot.py <group> <command>`, JSON out, `{"error","hint"}` + exit 1
   scripts/jp/
     cli        finds every module in `commands/` (`register(groups)`), `Fail`, argument helpers
@@ -26,14 +26,12 @@ jobpilot/
     dedup      canonical address, company+role key, `find_known`
     cvmodel, trace, guard, render    the CV schema; documents -> kept facts + `left_out`; profile -> violations;
                markup (`**bold**`, `_italic_`, `[text](url)`) -> Typst and HTML
-    prefs, score, region, leads, discover, insight    preferences, hard filters, the weighted total, the run,
-               the company brief grounded in the texts read
-    sources/   greenhouse, lever, ashby, smartrecruiters, recruitee, personio, workday, hn_hiring, yc,
-               career_page (jsonld, sitemap, web, boards)
-    answers, applyhelp, mailmatch    remembered answers, form prefill and validation, email -> job candidates
-    trends/    period, collectors (hackernews, yc, rss, page, person), frame, count, claims, brief, cite, report
-    commands/  one module per group: state, docs, profile, job, cv, prefs, source, discover, lead, brief,
-               apply, answers, track, trends
+    prefs, score, region, leads, discover    preferences, hard filters, the weighted total, the run
+    sources/   one adapter per job board API: greenhouse, lever, ashby, smartrecruiters, recruitee,
+               personio, workday; `base.fetch_posting` reads a posting page when the API has no text
+    answers    remembered application answers
+    commands/  one module per group: state, docs, profile, job, cv, prefs, source, discover, lead,
+               apply, answers, track
   tests/                 unittest, standard library only; `support.py` (`DataDirCase`, `Loopback` fixture server),
                          `validate_skill.py` (the skill's format, run by `test_skill.py`)
   README.md, AGENTS.md (CLAUDE.md links here), REVIEW.md    for people and agents developing the skill
@@ -52,11 +50,10 @@ Run from this folder.
 - Never add facts to a CV that are not in the user's documents. The agent drafts; `trace` keeps only what the
   documents state and `guard` rejects a CV the profile does not back. Code never writes a fact into the
   profile, and no command edits one: the user changes a document and the profile is read again.
-- A check is never weakened to let a draft through. A change to `trace.py`, `guard.py` or `cite.py` comes with
+- A check is never weakened to let a draft through. A change to `trace.py` or `guard.py` comes with
   a test that shows what it now refuses or accepts.
-- The agent supplies judgments, the scripts compute: the lead total, the citation check, the status move and
-  the form validation are code. A value the agent sends for something code computes is ignored.
-- Text from outside (documents, postings, pages, feeds, emails, form labels) is printed only through
+- The agent supplies judgments, the scripts compute: the lead total and the status move are code. A value the agent sends for something code computes is ignored.
+- Text from outside (documents, postings, pages) is printed only through
   `state.fence` with `state.UNTRUSTED_NOTE`. Reference files tell the agent it is data.
 - Outgoing HTTP goes through `jp.http` only. `TEST_ALLOW_PRIVATE` is for tests; no command or environment
   variable sets it.

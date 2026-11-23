@@ -1,4 +1,4 @@
-"""`source`: the job sources discovery searches (company boards, job pages, HN, YC)."""
+"""`source`: the job sources discovery searches (company job boards)."""
 from .. import discover, sources
 from ..cli import command, group
 
@@ -42,10 +42,10 @@ def _disable(args):
 def register(groups):
     commands = group(groups, "source", "Job sources: add (checked by reading it once), list, remove, enable, disable.")
     add = command(commands, "add", _add, "Check a job source by reading it once, then save it.")
-    add.add_argument("--kind", required=True, help="greenhouse, lever, ashby, smartrecruiters, recruitee, personio, "
-                                                   "workday, hn_hiring, yc or career_page")
-    add.add_argument("--url", default="", help="the board's address or name, or the page that lists the jobs")
-    add.add_argument("--name", default="", help="a name to show (default: the board name or the host)")
+    add.add_argument("--kind", required=True, help="greenhouse, lever, ashby, smartrecruiters, recruitee, personio "
+                                                   "or workday")
+    add.add_argument("--url", default="", help="the board's address or name")
+    add.add_argument("--name", default="", help="a name to show (default: the board name)")
     command(commands, "list", _list, "The job sources, oldest first.")
     for name, run, text in (("remove", _remove, "Remove a job source (its leads stay)."),
                             ("enable", _enable, "Search this source in discovery runs."),

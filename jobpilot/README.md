@@ -3,8 +3,7 @@
 A job-search skill for AI agents that never invents facts about you.
 
 You give it your own documents (a CV, a LinkedIn export, notes). It reads them into a profile, tailors a CV to
-each job, finds and ranks jobs, helps with application forms, tracks where each application stands and writes
-a cited report on the job market. Every fact in a CV must be found in your documents: a script checks it, and a
+each job, finds and ranks jobs, helps with application forms and tracks where each application stands. Every fact in a CV must be found in your documents: a script checks it, and a
 CV that fails is not saved.
 
 It is one [Agent Skill](https://agentskills.io): a `SKILL.md`, reference files and Python scripts that use the
@@ -16,9 +15,8 @@ to a model.
 | Reads your documents and drafts the profile | Keep only facts found in the documents, and list what was left out |
 | Reads a posting and writes the CV | Check every employer, title, date, number and skill against the profile; render the PDF |
 | Rates a job on five criteria | Fetch job boards, drop duplicates and what your preferences rule out, compute the score |
-| Drafts answers for a form | Fill what is known (your details, remembered answers), validate the rest |
-| Reads a reply email | Match it to an application; statuses only move forward |
-| Writes the points of a trends report | Count skills, and drop any point that does not cite a stored item |
+| Fills a form with its browser, stops before submit | Give the address, the CV file, your details and remembered answers |
+| Reads a reply email, records the outcome | Statuses only move forward |
 
 ## Install
 
@@ -42,7 +40,6 @@ Talk to the agent:
 - "I want senior backend roles, remote, in Europe. Find jobs at these companies: ..."
 - "Help me fill the application form for the Acme job."
 - "Where do my applications stand? I got an email from Acme, here it is."
-- "What is the market doing this month for my skills?"
 
 What to expect:
 
@@ -68,9 +65,9 @@ tested: Claude Desktop, claude.ai, Codex, Windows, and Python 3.9 and 3.10 (the 
 
 ## Job sources
 
-Greenhouse, Lever, Ashby, SmartRecruiters, Recruitee, Personio and Workday boards, Hacker News "Who is
-hiring", the YC job board, and any page that lists jobs (JSON-LD, sitemap, or links). A page that needs a
-browser or a login is reported, not worked around.
+Greenhouse, Lever, Ashby, SmartRecruiters, Recruitee, Personio and Workday boards. Any other page (a
+company careers page, Hacker News, YC) the agent reads with its own web tool and adds as a single job. A page
+that needs a browser or a login is reported, not worked around.
 
 ## Privacy and safety
 
@@ -78,7 +75,7 @@ browser or a login is reported, not worked around.
   scripts send nothing anywhere; they only read public job pages, with a named user agent, one request per
   host per second.
 - The scripts refuse addresses on your machine or a private network.
-- Text from postings, company pages, feeds and emails is treated as data: the agent is told never to follow
+- Text from postings, pages and emails is treated as data: the agent is told never to follow
   instructions inside it, and the scripts hand it over between markers.
 - No passwords, keys or tokens are stored or asked for.
 

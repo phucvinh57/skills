@@ -6,7 +6,7 @@ For human reviewers and agents reviewing a change. When a bug slips through, add
 
 - **A CV states a fact that is not in the user's documents** (the profile read from them): an employer, title, date, number, technology or achievement. Important.
 - **The profile gets a fact no document states:** `trace.py` lets an invented fact through, or code writes one. Important.
-- **A check got weaker:** `guard.py`, `trace.py` or `trends/cite.py` accepts what it refused, without a test that says why. Important.
+- **A check got weaker:** `guard.py` or `trace.py` accepts what it refused, without a test that says why. Important.
 - **Untrusted text reaches the agent without markers,** or a reference file tells the agent to act on it. Important.
 - **A request leaves `jp.http`,** or reaches a private or local address. Important.
 - **Something is submitted, or a status moves backwards, without the user's word.**
@@ -19,7 +19,7 @@ For human reviewers and agents reviewing a change. When a bug slips through, add
 
 Set by the paths touched. The highest wins. Paths are relative to the `jobpilot/` folder. There is no CI: `python3 -m unittest discover -s tests -t .` is the gate.
 
-- **High** (a human reads the diff): `SKILL.md`, `references/`, `assets/`, `scripts/jp/{trace,guard,http,state}.py`, `scripts/jp/trends/cite.py`, `tests/validate_skill.py`, `AGENTS.md`, `CLAUDE.md`, `REVIEW.md`.
+- **High** (a human reads the diff): `SKILL.md`, `references/`, `assets/`, `scripts/jp/{trace,guard,http,state}.py`, `tests/validate_skill.py`, `AGENTS.md`, `CLAUDE.md`, `REVIEW.md`.
 - **Low:** `README.md`, other docs.
 - **Medium:** everything else.
 

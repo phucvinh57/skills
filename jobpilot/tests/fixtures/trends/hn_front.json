@@ -1,6 +1,0 @@
-{"hits": [
-  {"objectID": "1", "title": "Rust 2.0 released", "url": "https://blog.example.com/rust-2#intro", "points": 450, "num_comments": 210, "created_at_i": 1794000000, "story_text": null},
-  {"objectID": "2", "title": "Ask HN: Is anyone hiring SREs?", "url": null, "story_text": "<p>Looking for <i>SRE</i> roles &amp; teams.", "points": 12, "num_comments": 3, "created_at_i": 1794000100},
-  {"objectID": "3", "title": "  ", "url": "https://x.test/untitled", "points": 1, "created_at_i": 1794000200},
-  {"objectID": "4", "title": "A bad link", "url": "javascript:alert(1)", "points": 5, "created_at_i": 1794000300}
-]}

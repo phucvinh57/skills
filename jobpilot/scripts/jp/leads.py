@@ -3,7 +3,7 @@
 `leads.json` is a list of rows:
 
     {id, source_id, url (canonical), dedup_key, company, role, location, snippet,
-     jd_path ("leads/<id>/jd.md"), score (float | null), score_json, insight,
+     jd_path ("leads/<id>/jd.md"), score (float | null), score_json,
      state: "new" | "dismissed" | "promoted", dismiss_reason, filtered_reason, job_slug,
      found_at, dismissed_at}
 
@@ -73,7 +73,6 @@ def add(rows, source_id, candidate, company, text, dismiss_reason=None):
         "jd_path": jd_file(lead_id),
         "score": None,
         "score_json": None,
-        "insight": None,
         "state": "dismissed" if dismiss_reason else "new",
         "dismiss_reason": dismiss_reason,
         "filtered_reason": None,
@@ -125,8 +124,6 @@ def row_view(lead):
     for name in ("filtered_reason", "dismiss_reason", "job_slug"):
         if lead.get(name):
             view[name] = lead[name]
-    if lead.get("insight"):
-        view["brief"] = True
     return view
 
 
@@ -238,7 +235,7 @@ def strip_jd_header(text):
 
 def promote(lead_id):
     """Turn a lead into a draft job: the job is created with the posting text as its `jd.md`, the
-    brief is copied, and the lead is marked `promoted`. Idempotent: a promoted lead returns its job;
+    lead is marked `promoted`. Idempotent: a promoted lead returns its job;
     if that job is gone, a new one is created. Only the user's wish calls this; discovery never does.
     Returns `(lead, job, created)`."""
     rows = load()
@@ -259,9 +256,6 @@ def promote(lead_id):
     link = _web_link(lead.get("url", ""))
     job = state.new_job(lead.get("company", ""), lead.get("role", ""), source=link, apply_url=link, lead_id=lead["id"])
     _write_job_jd(job, lead, text)
-    if lead.get("insight"):
-        job["insight"] = lead["insight"]
-        state.save_job(job)
     # The user chose it: a filter that hid it meanwhile no longer applies.
     lead.update(state="promoted", job_slug=job["slug"], filtered_reason=None)
     save(rows)
