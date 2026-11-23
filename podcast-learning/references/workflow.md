@@ -10,6 +10,8 @@ For one YouTube episode (no playlists), download at up to 720p to limit storage:
 yt-dlp --no-playlist -f 'bv*[height<=720]+ba/b[height<=720]/b' --merge-output-format mp4 --write-info-json --write-subs --write-auto-subs --sub-langs 'en,en-orig,en-US,en-GB' --sub-format vtt -o 'podcast-study/VIDEO_ID/source.%(ext)s' -- 'YOUTUBE_URL'
 ```
 
+Transcript only: add `--skip-download` to fetch just metadata and captions (Whisper still needs media; then download audio only with `-f ba -x --audio-format m4a`).
+
 Choose one usable English caption track, preferring human captions as identified in metadata. Download failures may need updated yt-dlp or its supported JavaScript runtime; report the error rather than promising all URLs work. Do not automatically use account cookies. MKV or WebM input is also supported; the rendered clips are MP4.
 
 For installed local Whisper:
@@ -25,6 +27,13 @@ Normalize VTT, SRT, Whisper JSON (`segments` array), or normalized JSON (list of
 ```sh
 python3 /path/to/skill/scripts/podcast.py normalize /path/captions.vtt /path/output/transcript.json
 ffprobe -v error -show_entries format=duration -of json /path/source.mp4
+```
+
+Export a readable transcript; format comes from the extension (`.srt`, `.md`, `.txt`). Input may be raw captions or normalized JSON. Optional `--start`/`--end` (seconds) cut an interval with times relative to `--start`:
+
+```sh
+python3 /path/to/skill/scripts/podcast.py export /path/output/transcript.json /path/output/transcript.srt
+python3 /path/to/skill/scripts/podcast.py export /path/output/transcript.json /path/output/part.txt --start 600 --end 1200
 ```
 
 All JSON timestamps use numeric seconds. Normalization removes overlapping repeated rolling-caption text; inspect the result for unusual caption styles. It does not repair recognition errors. Source JSON and original captions should remain available.

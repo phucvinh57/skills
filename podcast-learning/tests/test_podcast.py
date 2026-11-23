@@ -61,6 +61,15 @@ class TranscriptTests(unittest.TestCase):
             self.assertIn("00:19:59,000 --> 00:20:00,000", (directory / "subtitles.srt").read_text())
 
 
+    def test_export_formats(self):
+        cues = [{"start": 0, "end": 2, "text": "Hello there."}, {"start": 10, "end": 12, "text": "New topic."}]
+        self.assertIn("00:00:08,000 --> 00:00:10,000\nNew topic.", podcast.to_srt(cues, 2, 12))
+        self.assertNotIn("Hello", podcast.to_markdown(cues, 2, 12))
+        text = podcast.to_text(cues, 0, 12)
+        self.assertIn("Hello there.", text)
+        self.assertNotIn("00:", text)
+
+
 class PlanTests(unittest.TestCase):
     def test_valid_and_short_source_exception(self):
         self.assertEqual(podcast.validate(plan()), 2400)

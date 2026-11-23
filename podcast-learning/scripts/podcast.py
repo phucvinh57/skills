@@ -156,20 +156,47 @@ def verify_video(path, duration, audio_required=True):
         raise ValueError(f"Unexpected media duration in {path}")
 
 
-def write_text_artifacts(directory, cues, start, end):
-    subtitles, transcript = [], [f"# Transcript\n\nOriginal interval: {stamp(start)} – {stamp(end)}\n"]
+def clip_cues(cues, start, end):
+    """Yield (original_start, local_start, local_end, text) for cues inside [start, end)."""
     for cue in cues:
         left, right = max(start, cue["start"]), min(end, cue["end"])
         if right <= left:
             continue
         local_start, local_end = stamp(left - start), stamp(right - start)
-        if local_start == local_end:
+        if local_start != local_end:
+            yield left, local_start, local_end, cue["text"]
+
+
+def to_srt(cues, start, end):
+    return "\n".join(f"{i}\n{a.replace('.', ',')} --> {b.replace('.', ',')}\n{text}\n"
+                     for i, (_, a, b, text) in enumerate(clip_cues(cues, start, end), 1))
+
+
+def to_markdown(cues, start, end):
+    lines = [f"# Transcript\n\nOriginal interval: {stamp(start)} – {stamp(end)}\n"]
+    lines += [f"[{stamp(left)} original | {a} clip] {text}\n" for left, a, _, text in clip_cues(cues, start, end)]
+    return "\n".join(lines)
+
+
+def to_text(cues, start, end, pause=2.0):
+    """Plain readable text without timestamps; a pause of `pause` seconds starts a new paragraph."""
+    paragraphs, previous_end = [], None
+    for cue in cues:
+        if cue["end"] <= start or cue["start"] >= end:
             continue
-        subtitles.append(f"{len(subtitles) + 1}\n{local_start.replace('.', ',')} --> "
-                         f"{local_end.replace('.', ',')}\n{cue['text']}\n")
-        transcript.append(f"[{stamp(left)} original | {local_start} clip] {cue['text']}\n")
-    (directory / "subtitles.srt").write_text("\n".join(subtitles), encoding="utf-8")
-    (directory / "transcript.md").write_text("\n".join(transcript), encoding="utf-8")
+        if previous_end is None or cue["start"] - previous_end >= pause:
+            paragraphs.append([])
+        paragraphs[-1].append(cue["text"])
+        previous_end = cue["end"]
+    return "\n\n".join(" ".join(words) for words in paragraphs) + "\n"
+
+
+FORMATS = {".srt": to_srt, ".md": to_markdown, ".txt": to_text}
+
+
+def write_text_artifacts(directory, cues, start, end):
+    (directory / "subtitles.srt").write_text(to_srt(cues, start, end), encoding="utf-8")
+    (directory / "transcript.md").write_text(to_markdown(cues, start, end), encoding="utf-8")
 
 
 def render(manifest_path):
@@ -236,6 +263,11 @@ def main():
     normal = commands.add_parser("normalize", help="Convert captions to normalized JSON")
     normal.add_argument("input")
     normal.add_argument("output")
+    export = commands.add_parser("export", help="Write a transcript as .srt, .md, or .txt")
+    export.add_argument("input", help="Captions or normalized JSON")
+    export.add_argument("output", help="Output path; format from extension")
+    export.add_argument("--start", type=float, default=0.0, help="Interval start in seconds")
+    export.add_argument("--end", type=float, default=math.inf, help="Interval end in seconds")
     for name in ("validate", "render"):
         command = commands.add_parser(name)
         command.add_argument("manifest")
@@ -248,6 +280,16 @@ def main():
             if Path(args.output).exists():
                 raise ValueError("Output already exists; choose a new normalized transcript path")
             write_json(args.output, normalize(args.input))
+        elif args.command == "export":
+            output = Path(args.output)
+            if output.suffix.lower() not in FORMATS:
+                raise ValueError(f"Output extension must be one of {', '.join(FORMATS)}")
+            if output.exists():
+                raise ValueError("Output already exists; choose a new path")
+            output.parent.mkdir(parents=True, exist_ok=True)
+            cues = normalize(args.input)
+            end = min(args.end, max(cue["end"] for cue in cues))
+            output.write_text(FORMATS[output.suffix.lower()](cues, args.start, end), encoding="utf-8")
         elif args.command == "validate":
             duration = validate(read_json(args.manifest))
             print(f"Valid clip plan: {duration:.3f} seconds")

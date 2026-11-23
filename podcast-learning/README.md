@@ -1,6 +1,6 @@
 # Podcast learning
 
-A portable Agent Skill for turning long English podcasts into topic-based videos and vocabulary lessons. Requires an agent with local command execution, such as Claude Code or Codex.
+A portable Agent Skill for getting clean transcripts from YouTube or local media, and optionally turning long English podcasts into topic-based videos and vocabulary lessons. Requires an agent with local command execution, such as Claude Code or Codex.
 
 ## Install
 
@@ -34,9 +34,11 @@ In Claude Code invoke `/podcast-learning`; in Codex invoke `$podcast-learning`, 
 
 > Use podcast-learning on https://www.youtube.com/watch?v=VIDEO_ID. Make 15–30 minute topic-based clips and B1–B2 English lessons, with 20–25 vocabulary terms and two examples per term. Save to ./podcast-study/my-episode.
 
+> Use podcast-learning to get only the transcript of https://www.youtube.com/watch?v=VIDEO_ID as plain text.
+
 > Use podcast-learning on ./interview.mp4 with ./interview.en.srt. Explain vocabulary in simple English.
 
-Each clip has an MP4 video, English SRT subtitles, a timestamped transcript, and a Markdown vocabulary lesson. The output directory also contains an episode index, normalized transcript, and resumable manifest. Keep generated media outside this skill directory. Full episodes can require several gigabytes and substantial rendering time.
+Transcript-only requests stop after producing `transcript.json` plus the requested `.srt`, `.md`, or `.txt`. For the full pack, each clip has an MP4 video, English SRT subtitles, a timestamped transcript, and a Markdown vocabulary lesson. The output directory also contains an episode index, normalized transcript, and resumable manifest. Keep generated media outside this skill directory. Full episodes can require several gigabytes and substantial rendering time.
 
 ## Verify the helpers
 
