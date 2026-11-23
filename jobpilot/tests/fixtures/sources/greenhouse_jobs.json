@@ -1,0 +1,43 @@
+{
+  "jobs": [
+    {
+      "id": 4011001,
+      "internal_job_id": 301,
+      "title": "Senior Backend Engineer",
+      "updated_at": "2026-11-10T09:12:41-05:00",
+      "location": {"name": "Remote - Vietnam"},
+      "absolute_url": "https://boards.greenhouse.io/acme/jobs/4011001?gh_src=abc123",
+      "company_name": "Acme Robotics",
+      "metadata": null
+    },
+    {
+      "id": 4011002,
+      "internal_job_id": 302,
+      "title": "Account Executive, Enterprise",
+      "updated_at": "2026-11-09T09:12:41-05:00",
+      "location": {"name": "New York, NY"},
+      "absolute_url": "https://boards.greenhouse.io/acme/jobs/4011002",
+      "company_name": "Acme Robotics"
+    },
+    {
+      "id": 4011003,
+      "title": "Software Engineer, Platform",
+      "updated_at": "2026-11-08T09:12:41-05:00",
+      "location": {"name": "Ho Chi Minh City"},
+      "absolute_url": "https://boards.greenhouse.io/acme/jobs/4011003"
+    },
+    {
+      "id": 4011004,
+      "title": "Engineering Manager, Fleet",
+      "location": {"name": "Berlin"},
+      "absolute_url": "javascript:alert(1)"
+    },
+    {
+      "id": 4011005,
+      "title": "Staff Data Engineer",
+      "location": null,
+      "absolute_url": "https://boards.greenhouse.io/acme/jobs/4011005"
+    }
+  ],
+  "meta": {"total": 5}
+}

@@ -1,0 +1,49 @@
+{
+  "offset": 0,
+  "limit": 100,
+  "totalFound": 150,
+  "content": [
+    {
+      "id": "744000100000001",
+      "name": "Senior Backend Engineer (Rust)",
+      "uuid": "00000000-0000-4000-8000-000000000001",
+      "refNumber": "REF0001",
+      "company": { "identifier": "AcmeGroup", "name": "Acme Group" },
+      "releasedDate": "2026-11-14T11:04:49.073Z",
+      "location": { "city": "Berlin", "region": "Berlin", "country": "de", "remote": false, "hybrid": true, "fullLocation": "Berlin, Berlin, Germany" },
+      "typeOfEmployment": { "id": "permanent", "label": "Full-time" },
+      "experienceLevel": { "id": "mid_senior_level", "label": "Mid-Senior Level" },
+      "ref": "https://api.smartrecruiters.com/v1/companies/AcmeGroup/postings/744000100000001"
+    },
+    {
+      "id": "744000100000002",
+      "name": "Account Executive, DACH",
+      "company": { "identifier": "AcmeGroup", "name": "Acme Group" },
+      "releasedDate": "2026-11-13T09:00:00.000Z",
+      "location": { "city": "Munich", "region": "Bavaria", "country": "de", "remote": false, "hybrid": false, "fullLocation": "Munich, Bavaria, Germany" },
+      "typeOfEmployment": { "id": "permanent", "label": "Full-time" },
+      "experienceLevel": { "id": "associate", "label": "Associate" }
+    },
+    {
+      "id": "744000100000003",
+      "name": "Site Reliability Engineer",
+      "company": { "identifier": "AcmeGroup" },
+      "releasedDate": "2026-11-12T09:00:00.000Z",
+      "location": { "city": "Lisbon", "country": "pt", "remote": true, "hybrid": false },
+      "typeOfEmployment": { "id": "permanent", "label": "Full-time" }
+    },
+    {
+      "id": "744000100000004",
+      "name": "",
+      "company": { "identifier": "AcmeGroup", "name": "Acme Group" },
+      "location": { "fullLocation": "Nowhere" }
+    },
+    {
+      "id": "744000100000005",
+      "name": "Data Engineer",
+      "company": { "identifier": "AcmeGroup", "name": "Acme Group" },
+      "location": { "city": "Ho Chi Minh City", "country": "vn", "remote": false, "hybrid": false, "fullLocation": "Ho Chi Minh City, Vietnam" },
+      "experienceLevel": { "id": "entry_level", "label": "Entry Level" }
+    }
+  ]
+}

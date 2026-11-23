@@ -1,0 +1,7 @@
+[
+  {"name": "Quietly", "slug": "quietly", "one_liner": "Calm dashboards.", "batch": "Fall 2026", "industry": "B2B", "team_size": 3, "isHiring": false, "top_company": false, "launched_at": 1793000000},
+  {"name": "Hirey", "slug": "hirey", "one_liner": "Hiring tools for small teams.", "long_description": "We match engineers with startups.\n\n\nRust and Postgres inside.", "website": "https://hirey.test", "all_locations": "San Francisco, CA, USA", "team_size": 12, "industry": "B2B", "subindustry": "Recruiting", "tags": ["hiring", "api"], "batch": "Fall 2026", "stage": "Early", "status": "Active", "isHiring": true, "top_company": false, "launched_at": 1793100000},
+  {"name": "Broken", "slug": "has spaces"},
+  "not a company",
+  {"name": "Toppy", "slug": "toppy", "batch": "Fall 2026", "isHiring": null, "top_company": true, "tags": null}
+]

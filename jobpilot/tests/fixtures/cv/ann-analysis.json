@@ -1,0 +1,6 @@
+{
+  "company": " Northwind ", "role": "Senior Backend Engineer", "slug": "northwind-senior-backend-engineer",
+  "location": "Remote", "apply_url": "https://northwind.example/jobs/42/apply",
+  "must_have": ["Rust", "PostgreSQL", "Kubernetes"], "nice_to_have": ["Kafka"],
+  "key_terms": ["Rust", "Kubernetes", "PostgreSQL", "logistics"], "seniority": "Senior"
+}

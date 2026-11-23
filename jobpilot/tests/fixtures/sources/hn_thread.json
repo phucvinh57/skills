@@ -1,0 +1,30 @@
+{
+  "id": 41000003,
+  "title": "Ask HN: Who is hiring? (October 2026)",
+  "children": [
+    {
+      "id": 41000101,
+      "author": "acme_hr",
+      "text": "Acme Robotics | Senior Rust Engineer | Remote (EU) | Full-time<p>We build warehouse robots. You will write Rust services and tooling.<p>Apply at https://acme.test/jobs",
+      "children": [{"id": 41000901, "text": "Is this still open?", "children": []}]
+    },
+    {
+      "id": 41000102,
+      "author": "bakery",
+      "text": "Sweet Dough | Pastry Chef | Paris, France | Onsite<p>We bake bread.",
+      "children": []
+    },
+    {
+      "id": 41000103,
+      "author": "gone",
+      "text": null,
+      "children": []
+    },
+    {
+      "id": 41000104,
+      "author": "globex",
+      "text": "Globex (YC S20) | Backend Engineer, Go | Singapore | Hybrid<p>Payments infrastructure in Go and PostgreSQL.",
+      "children": []
+    }
+  ]
+}

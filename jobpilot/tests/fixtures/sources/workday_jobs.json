@@ -1,0 +1,35 @@
+{
+  "total": 3,
+  "jobPostings": [
+    {
+      "title": "Senior Backend Engineer, Payments",
+      "externalPath": "/job/Vietnam-Ho-Chi-Minh-City/Senior-Backend-Engineer--Payments_JR1000001",
+      "locationsText": "Vietnam, Ho Chi Minh City",
+      "postedOn": "Posted 3 Days Ago",
+      "bulletFields": ["JR1000001"]
+    },
+    {
+      "title": "Account Executive",
+      "externalPath": "/job/UK-London/Account-Executive_JR1000002",
+      "locationsText": "UK, London",
+      "postedOn": "Posted Today",
+      "bulletFields": ["JR1000002"]
+    },
+    {
+      "title": "Site Reliability Engineer",
+      "externalPath": "/job/US-CA-Remote/Site-Reliability-Engineer_JR1000003",
+      "locationsText": "3 Locations",
+      "postedOn": "Posted 30+ Days Ago",
+      "bulletFields": ["JR1000003"]
+    },
+    {
+      "title": "",
+      "externalPath": "/job/US-CA-Remote/Untitled_JR1000004",
+      "locationsText": "US, CA, Remote",
+      "postedOn": "Posted Yesterday",
+      "bulletFields": ["JR1000004"]
+    }
+  ],
+  "facets": [],
+  "userAuthenticated": false
+}

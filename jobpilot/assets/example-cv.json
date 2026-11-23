@@ -1,0 +1,145 @@
+{
+  "basics": {
+    "name": "Vinh Nguyen Phuc",
+    "headline": "System Engineer / DevOps Engineer",
+    "email": "npvinh0507@gmail.com",
+    "phone": "0373395726",
+    "location": "Ho Chi Minh City, Vietnam",
+    "github": "github.com/phucvinh57",
+    "linkedin": "linkedin.com/in/npvinh57"
+  },
+  "sections": [
+    "summary",
+    "skills",
+    "projects",
+    "experience",
+    "education",
+    "languages"
+  ],
+  "summary": [
+    "Software engineer with 2+ years of DevOps-related experience operating Linux VPS/Cloud servers for web products and internal platforms.",
+    "Hands-on with Nginx, MySQL/PostgreSQL, DNS, SSL, backup/migration, and server hardening.",
+    "Experienced in troubleshooting website downtime, slow performance, malware/security risks, and database-related issues with a reliability-first mindset.",
+    "Familiar with Docker, Git-based deployment/CI-CD, K8s, Cloudflare, and English communication for cross-border collaboration."
+  ],
+  "skills": [
+    {
+      "category": "Linux & Server Ops",
+      "items": [
+        "Linux",
+        "VPS",
+        "System Hardening",
+        "Monitoring",
+        "Proxmox"
+      ]
+    },
+    {
+      "category": "Web Hosting Stack",
+      "items": [
+        "Nginx",
+        "Apache",
+        "PHP",
+        "MySQL",
+        "DNS",
+        "SSL/TLS"
+      ]
+    },
+    {
+      "category": "Troubleshooting",
+      "items": [
+        "Performance Tuning",
+        "Log Analysis",
+        "Root Cause Analysis"
+      ]
+    },
+    {
+      "category": "DevOps & Platform",
+      "items": [
+        "Docker",
+        "CI/CD",
+        "GitHub Actions",
+        "Cloudflare",
+        "Email Hosting Basics"
+      ]
+    },
+    {
+      "category": "Control Panels & Migration",
+      "items": [
+        "cPanel",
+        "HestiaCP",
+        "Backup Strategy",
+        "Data Migration",
+        "Disaster Recovery"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Home Server Infrastructure (Proxmox Cluster)",
+      "start": "2024",
+      "end": "Present",
+      "bullets": [
+        "Built and operated a 2-node Proxmox cluster from two home machines (20 vCPU, 96GB RAM, 5TB storage, 2 GPUs) for self-hosting and hands-on infrastructure practice.",
+        "Configured physical networking: router NAT port forwarding, DHCP reservation, switching, and Wi-Fi mesh setup.",
+        "Provisioned reusable VM/LXC templates and provided VPS environments with access control for student club members.",
+        "Set up domain and DNS management with Cloudflare, and deployed Nginx Proxy Manager for reverse proxy routing.",
+        "Hosted internal databases (MongoDB, PostgreSQL) and ran a 3-VM Kubernetes cluster for educational workloads."
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "ST Engineering",
+      "url": "www.stengg.com",
+      "position": "Software Engineer",
+      "location": "HCMC, Vietnam",
+      "start": "Aug 2025",
+      "end": "Present",
+      "bullets": [
+        "Operated and secured Linux servers/VMs across mixed environments; automated provisioning and baseline configuration with cloud-init and monitoring integrations.",
+        "Built and maintained hardening/compliance scripts, plus controlled harden/unharden workflows for audit, testing, and incident response.",
+        "Troubleshot production issues (service instability, performance bottlenecks, security findings) and improved uptime through preventive checks.",
+        "Collaborated with cross-functional teams in English to deliver stable, secure infrastructure support for internal products."
+      ]
+    },
+    {
+      "company": "LFG Incorporated",
+      "url": "lfg.inc",
+      "position": "Software Engineer",
+      "location": "Remote",
+      "start": "Jun 2024",
+      "end": "Aug 2025",
+      "bullets": [
+        "Built CI/CD workflows to automate testing, packaging, and deployment across multiple projects.",
+        "Authored shared reusable GitHub Actions steps/workflows to standardize pipelines and reduce duplicated CI logic."
+      ]
+    },
+    {
+      "company": "ConcreteAI",
+      "url": "concreateai.io",
+      "position": "Backend Engineer",
+      "location": "Remote, Singapore",
+      "start": "Oct 2022",
+      "end": "Nov 2023",
+      "bullets": [
+        "Owned CI/CD pipelines for automated test execution, packaging, and deployment to improve release reliability.",
+        "Integrated monitoring/observability checks into delivery workflows for faster issue detection after releases."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Ho Chi Minh University of Technology",
+      "degree": "Bachelor of Computer Science",
+      "location": "HCMC, Vietnam",
+      "start": "Oct 2019",
+      "end": "Apr 2024"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Basic working proficiency"
+    }
+  ]
+}

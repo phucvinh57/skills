@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Engineering blog</title>
+    <link>{{BASE}}/blog</link>
+    <item>
+      <title>Scaling   Postgres &amp; Kafka</title>
+      <link>/blog/scaling#top</link>
+      <pubDate>Tue, 10 Nov 2026 12:00:00 GMT</pubDate>
+      <description>A teaser.</description>
+      <content:encoded><![CDATA[<p>We moved the platform to Postgres 19 and Kafka this year.</p><p>The team grew from four to eleven engineers, and we are hiring three more backend engineers in Singapore. Most of the work is in Rust now, and the old Python services are being retired one by one. We wrote down what broke on the way, what we would do again, and what we would never do again, so that the next team does not have to learn it the hard way.</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>A teaser only&nbsp;post</title>
+      <link>{{BASE}}/blog/teaser</link>
+      <dc:date>2026-11-11T08:00:00Z</dc:date>
+      <description>Short teaser.</description>
+    </item>
+    <item>
+      <title>Three years ago</title>
+      <link>{{BASE}}/blog/old</link>
+      <pubDate>Mon, 06 Nov 2023 12:00:00 GMT</pubDate>
+      <description>Old news.</description>
+    </item>
+    <item>
+      <title>No link at all</title>
+      <description>Nothing to cite.</description>
+    </item>
+  </channel>
+</rss>
