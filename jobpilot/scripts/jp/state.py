@@ -4,13 +4,12 @@ One folder of plain files (`JOBPILOT_DATA_DIR`, else `~/.jobpilot`, else `./jobp
 
     profile.json        the profile read from the documents (+ left_out, documents hash)
     preferences.json    what the user wants (see `score.py`)
-    sources.json        job sources and trend sources
+    sources.json        job sources
     leads.json          found jobs: new / dismissed / promoted
     answers.json        remembered application answers
     documents/          the user's documents as text (<name>.txt) + index.json
     leads/<id>/jd.md    a lead's posting text
     jobs/<slug>/        job.json, jd.md, analysis.json, cv.json, cv.pdf, timeline.json
-    trends/             collected items and reports
 
 Only these scripts write there. A job's status only moves forward (`can_advance_to`).
 """

@@ -1,8 +1,8 @@
-"""`track`: the board, a job's status and timeline, and what a reply email says."""
+"""`track`: the board, a job's status and timeline."""
 import datetime
 
-from .. import mailmatch, state
-from ..cli import Fail, command, group, read_json_arg
+from .. import state
+from ..cli import Fail, command, group
 
 
 def _days_since(stamp):
@@ -119,47 +119,8 @@ def _restore(args):
     return {"job": _brief(job), "restored_to": back}
 
 
-def _email_candidates(args):
-    sender = mailmatch.full_from(args.sender, args.name or "")
-    if not mailmatch.sender_host(sender):
-        raise Fail("--from needs the sender's address (name@host)")
-    found, how = mailmatch.candidates(sender, args.subject, args.snippet or "")
-    out = {
-        "candidates": [dict(_brief(job), why=why) for job, why in found],
-        "matched_by": how,
-        "about_a_job": bool(found),
-    }
-    if how == "matched":
-        out["next"] = "Classify the email among these candidates (references/track.md), then `track email --file F`."
-    elif how == "job_hints":
-        out["next"] = ("No job matches the sender; the text reads like a job email. Classify among these candidates;"
-                       " `job` is null unless the email clearly names one of them.")
-    else:
-        out["next"] = "Not about one of the user's jobs: skip this email."
-    return out
-
-
-def _email(args):
-    raw = read_json_arg(args.file)
-    if not isinstance(raw, dict):
-        raise Fail("the classification must be one JSON object",
-                   hint='{"id", "job", "kind", "confidence", "summary", "from", "subject", "received_at"}')
-    return mailmatch.report(raw, confirmed=args.confirmed)
-
-
-def _email_dismiss(args):
-    return {"email": mailmatch.dismiss(args.id)}
-
-
-def _emails(args):
-    stored = mailmatch.emails()
-    if args.review:
-        stored = [email for email in stored if mailmatch.needs_review(email)]
-    return {"emails": stored}
-
-
 def register(groups):
-    commands = group(groups, "track", "The board, a job's status and timeline, reply emails.")
+    commands = group(groups, "track", "The board, a job's status and timeline.")
     command(commands, "board", _board, "Jobs by stage: CVs | Applied | In progress | Done.")
     status = command(commands, "status", _status, "Move a job's status (forward only).")
     status.add_argument("slug")
@@ -179,15 +140,3 @@ def register(groups):
     dismiss.add_argument("--reason", default="")
     restore = command(commands, "restore", _restore, "Bring a dismissed job back to where it was.")
     restore.add_argument("slug")
-    candidates = command(commands, "email-candidates", _email_candidates, "The jobs an email can be about.")
-    candidates.add_argument("--from", dest="sender", required=True, help="the sender's address, or `Name <address>`")
-    candidates.add_argument("--subject", required=True)
-    candidates.add_argument("--name", help="the sender's display name")
-    candidates.add_argument("--snippet", help="the first lines of the email")
-    email = command(commands, "email", _email, "Record a classified email.")
-    email.add_argument("--file", required=True, help="the classification as JSON (`-` = stdin)")
-    email.add_argument("--confirmed", action="store_true", help="the user confirmed this reading")
-    wrong = command(commands, "email-dismiss", _email_dismiss, "The user says a low-confidence reading is wrong.")
-    wrong.add_argument("--id", required=True)
-    listed = command(commands, "emails", _emails, "The recorded emails.")
-    listed.add_argument("--review", action="store_true", help="only those waiting for the user's confirmation")

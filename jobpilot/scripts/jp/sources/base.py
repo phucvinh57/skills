@@ -510,6 +510,40 @@ class Net:
         return response
 
 
+POSTING_ACCEPT = "text/html,application/xhtml+xml,application/pdf;q=0.9,*/*;q=0.5"
+MAX_POSTING_BYTES = 10 * 1024 * 1024
+# Shortest page text that is a posting; less is a page JavaScript draws, or a bot wall.
+MIN_PAGE_CHARS = 400
+
+
+def fetch_posting(candidate, http=None):
+    """The posting page behind `candidate["url"]` as text, for an adapter whose `posting()` is None.
+    Starts with `header(...)` like every adapter's text. `NeedsBrowser` for a wall or a page with
+    too little text (drawn by JavaScript)."""
+    url = parse_url(candidate.get("url", ""))
+    if url is None or not url.is_http:
+        raise Fail("only http(s) links are read")
+    response = (http if isinstance(http, Net) else Net(http)).get(str(url), POSTING_ACCEPT)
+    if len(response.body) > MAX_POSTING_BYTES:
+        raise Fail("the page is larger than 10 MB")
+    content_type = (response.headers.get("Content-Type") or "").lower()
+    if "application/pdf" in content_type or response.body[:5] == b"%PDF-":
+        import tempfile
+
+        with tempfile.NamedTemporaryFile(suffix=".pdf") as temp:
+            temp.write(response.body)
+            temp.flush()
+            body = ingest.pdf_text(temp.name).strip()
+    else:
+        raw = response.text()
+        body = (ingest.html_to_text(raw) if ingest.looks_like_html(raw) or "html" in content_type else ingest.clean(raw)).strip()
+    if len(body) < MIN_PAGE_CHARS:
+        raise NeedsBrowser(f"only {len(body)} characters of text were found (the page is probably drawn by JavaScript)",
+                           url=str(url))
+    head = header(candidate.get("title", ""), candidate.get("company", ""), candidate.get("location", ""))
+    return f"{head}\n\n{body}"
+
+
 class Adapter:
     """A place to find postings. `search` gives one page of candidates; `posting` the full text when
     the adapter has it without loading the posting's web page."""
@@ -522,9 +556,6 @@ class Adapter:
 
     def posting(self, candidate):
         return None
-
-    def board_hints(self):
-        return []
 
     def _fitting_page(self, candidates, prefs, cursor, page_size):
         roles = roles_of(prefs)

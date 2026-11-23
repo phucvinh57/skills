@@ -1,4 +1,0 @@
-{"hits": [
-  {"objectID": "1", "title": "Rust 2.0 released", "url": "https://blog.example.com/rust-2", "points": 450, "num_comments": 210, "created_at_i": 1794000000},
-  {"objectID": "5", "title": "Postgres 19 is out", "url": "https://pg.example.org/19", "points": 300, "num_comments": 90, "created_at_i": 1794300000}
-]}
