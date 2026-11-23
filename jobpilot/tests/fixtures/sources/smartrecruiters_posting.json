@@ -1,0 +1,19 @@
+{
+  "id": "744000100000001",
+  "name": "Senior Backend Engineer (Rust)",
+  "company": { "identifier": "AcmeGroup", "name": "Acme Group" },
+  "location": { "city": "Berlin", "region": "Berlin", "country": "de", "remote": false, "hybrid": true, "fullLocation": "Berlin, Berlin, Germany" },
+  "releasedDate": "2026-11-14T11:04:49.073Z",
+  "postingUrl": "https://jobs.smartrecruiters.com/AcmeGroup/744000100000001-senior-backend-engineer-rust",
+  "applyUrl": "https://jobs.smartrecruiters.com/AcmeGroup/744000100000001-senior-backend-engineer-rust?oga=true",
+  "jobAd": {
+    "sections": {
+      "companyDescription": { "title": "Company Description", "text": "<p>Acme Group builds anvils &amp; rockets for road runners.</p>" },
+      "jobDescription": { "title": "Job Description", "text": "<p><strong>Role</strong></p><ul><li>Design payment services in Rust</li><li>Run them on Kubernetes</li></ul>" },
+      "qualifications": { "title": "Qualifications", "text": "<ol><li>5+ years of backend work</li><li>PostgreSQL</li></ol>" },
+      "additionalInformation": { "title": "Additional Information", "text": "" }
+    }
+  },
+  "typeOfEmployment": { "id": "permanent", "label": "Full-time" },
+  "experienceLevel": { "id": "mid_senior_level", "label": "Mid-Senior Level" }
+}

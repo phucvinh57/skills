@@ -1,0 +1,276 @@
+{
+  "cv": {
+    "basics": {
+      "name": "Vinh Nguyen Phuc",
+      "headline": "Software Engineer",
+      "email": "npvinh0507@gmail.com",
+      "phone": "0373395726",
+      "location": "Ho Chi Minh City, Vietnam",
+      "github": "github.com/phucvinh57",
+      "linkedin": "linkedin.com/in/npvinh57"
+    },
+    "summary": [
+      "Systems-focused Software Engineer with 4+ years of experience building scalable backend systems, infrastructure tooling and OS-level integrations.",
+      "Specialized in Go, TypeScript, and Rust, with experience spanning IoT platforms (billions of events/month), decentralized systems (DePIN), and Linux authentication (PAM).",
+      "Creator of Biopass, an open-source biometric authentication system for Linux, integrating face and fingerprint recognition with a lightweight runtime and IR-based anti-spoofing."
+    ],
+    "skills": [
+      {
+        "category": "Languages",
+        "items": [
+          "Go",
+          "TypeScript",
+          "Rust",
+          "C++"
+        ]
+      },
+      {
+        "category": "Backend",
+        "items": [
+          "Echo",
+          "NestJS",
+          "Fastify",
+          "GraphQL",
+          "WebSocket"
+        ]
+      },
+      {
+        "category": "Cloud",
+        "items": [
+          "AWS (S3, SQS, CloudWatch, X-Ray)"
+        ]
+      },
+      {
+        "category": "Systems",
+        "items": [
+          "Linux",
+          "PAM",
+          "CMake",
+          "Proxmox",
+          "System Hardening"
+        ]
+      },
+      {
+        "category": "Databases",
+        "items": [
+          "PostgreSQL",
+          "MongoDB",
+          "DynamoDB",
+          "MySQL",
+          "Redis"
+        ]
+      },
+      {
+        "category": "DevOps",
+        "items": [
+          "GitHub Actions",
+          "GitLab CI",
+          "Docker",
+          "K8s",
+          "K3s",
+          "cloud-init",
+          "Zabbix"
+        ]
+      },
+      {
+        "category": "Web Hosting",
+        "items": [
+          "Nginx",
+          "Apache",
+          "PHP",
+          "DNS",
+          "SSL/TLS",
+          "Cloudflare",
+          "cPanel",
+          "HestiaCP",
+          "Email Hosting Basics"
+        ]
+      },
+      {
+        "category": "Operations",
+        "items": [
+          "Backup Strategy",
+          "Data Migration",
+          "Disaster Recovery",
+          "Log Analysis",
+          "Root Cause Analysis",
+          "Performance Tuning"
+        ]
+      }
+    ],
+    "experience": [
+      {
+        "company": "ST Engineering",
+        "url": "www.stengg.com",
+        "position": "Software Engineer",
+        "location": "HCMC, Vietnam",
+        "start": "Aug 2025",
+        "end": "Present",
+        "bullets": [
+          "Reduced manual VM provisioning effort by automating discovery and configuration using Zabbix + cloud-init.",
+          "Developed an internal desktop security scanning application, improving vulnerability detection and standardizing security checks across systems.",
+          "Built and maintained system hardening and baseline compliance scripts for legacy and modern environments, including Windows XP, Windows Server, Ubuntu, and Fedora.",
+          "Automated security configuration enforcement and rollback (harden/unharden) processes to support testing, auditing, and incident response workflows.",
+          "Contributed to system design, feature proposals, and security improvements, collaborating with cross-functional teams to enhance platform reliability and compliance posture."
+        ]
+      },
+      {
+        "company": "LFG Incorporated",
+        "url": "lfg.inc",
+        "position": "Software Engineer",
+        "location": "Remote",
+        "start": "Jun 2024",
+        "end": "Aug 2025",
+        "groups": [
+          {
+            "title": "DePIN Platform Development:",
+            "bullets": [
+              "Designed and implemented a decentralized physical infrastructure (DePIN) platform using NestJS and PostgreSQL for the backend, which can manage 5000+ online edge computers.",
+              "Built a Golang CLI using K8s APIs to manage node operations, task execution, and platform workflows on users' K3s clusters.",
+              "Integrated crypto payment systems and task delegation mechanisms.",
+              "Worked independently and communicated directly with customers to clarify requirements, provide updates, and deliver features."
+            ]
+          },
+          {
+            "title": "Game Launcher Platform Development:",
+            "bullets": [
+              "Developed a JavaScript SDK to help the frontend team manage game download, installation and version control.",
+              "Designed and built backend system using NestJS, PostgreSQL, and AWS services (S3, SQS, Redis).",
+              "Created a CLI tool with Git-like file control for game developers to publish and manage game releases efficiently."
+            ]
+          },
+          {
+            "title": "EV Charger Rentals (Mobile App, Full Stack):",
+            "bullets": [
+              "Built cross-platform mobile applications using React Native, with Zustand, TanStack Query, and OpenAPI-generated clients.",
+              "Integrated Google Maps API for location-based features and Stripe for payments and deposit handling.",
+              "Delivered the MVP in one month, including OAuth authentication, core booking flows, and payment functionality.",
+              "Contributed across the full stack to turn product requirements into a working production-ready MVP."
+            ]
+          },
+          {
+            "title": "CI/CD:",
+            "bullets": [
+              "Built CI/CD workflows to automate testing, packaging, and deployment across multiple projects.",
+              "Authored shared reusable GitHub Actions steps/workflows to standardize pipelines and reduce duplicated CI logic."
+            ]
+          }
+        ]
+      },
+      {
+        "company": "ConcreteAI",
+        "url": "concreateai.io",
+        "position": "Backend Engineer",
+        "location": "Remote, Singapore",
+        "start": "Oct 2022",
+        "end": "Nov 2023",
+        "groups": [
+          {
+            "title": "Backend Development:",
+            "bullets": [
+              "Developed high-performance backend services using Node.js (Fastify), which handles billions of IoT data points per month.",
+              "Designed and implemented caching strategies for heavy computations, including stateful and input-driven computations.",
+              "Built real-time features (e.g., live charts, notifications) using WebSocket.",
+              "Applied modulith architecture to balance modularity and maintainability within a single deployable system.",
+              "Wrote unit and integration tests to ensure reliability of critical features.",
+              "Implemented feature flag system to enable controlled rollouts, A/B testing, and safer deployments."
+            ]
+          },
+          {
+            "title": "Database Design:",
+            "bullets": [
+              "Designed and optimized query access patterns and indexing strategies to improve performance and scalability, particularly in Amazon DynamoDB.",
+              "Refactored MongoDB schema from normalized (3NF) to denormalized (2NF) to optimize read-heavy workloads, reducing join-like operations and improving query latency."
+            ]
+          },
+          {
+            "title": "DevOps:",
+            "bullets": [
+              "Built CI/CD pipelines using GitHub Actions for automated testing, packaging, and deployment workflows.",
+              "Implemented observability stack using AWS X-Ray and Amazon CloudWatch for tracing, logging, and system monitoring.",
+              "Analyzed metrics and logs to identify bottlenecks and proactively propose system improvements.",
+              "Authored technical RFCs to propose new features and architectural improvements, contributing to long-term system evolution."
+            ]
+          }
+        ]
+      },
+      {
+        "company": "GEEK Up",
+        "url": "geekup.vn",
+        "position": "Summer Intern",
+        "location": "HCMC, Vietnam",
+        "start": "Jun 2022",
+        "end": "Aug 2022",
+        "bullets": [
+          "Developed an internal social platform serving company employees.",
+          "Built GraphQL APIs with Node.js (NestJS), enabling flexible data querying and efficient frontend integration.",
+          "Designed database schemas.",
+          "Implemented CI/CD pipelines with GitLab CI.",
+          "Operated across backend and DevOps domains, bridging development and infrastructure to streamline delivery workflows."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Biopass",
+        "url": "github.com/TickLabVN/biopass",
+        "role": "Core Maintainer",
+        "start": "Feb 2025",
+        "end": "Present",
+        "intro": "Linux biometric authentication system with 150+ stars, used by real users and actively maintained as an alternative to existing Linux authentication solutions (e.g., Howdy, https://github.com/boltgolt/howdy).",
+        "bullets": [
+          "Architected a pluggable authentication system integrating with Linux PAM stack.",
+          "Built biometric authentication workflows (face + fingerprint) with unified UX similar to Windows Hello.",
+          "Implemented IR-based anti-spoofing pipeline with on-device AI inference.",
+          "Designed lightweight runtime (~13MB) with minimal dependencies, significantly smaller than alternatives (e.g., Howdy is 1GB to 2GB including dependencies).",
+          "Worked at OS level: login managers, PAM modules, credential propagation.",
+          "Packaged and distributed across APT, RPM, and AUR ecosystems.",
+          "Led project direction, code reviews, and community contributions."
+        ]
+      },
+      {
+        "name": "Tonic",
+        "url": "github.com/TickLabVN/tonic",
+        "start": "Feb 2024",
+        "end": "Jul 2025",
+        "intro": "Code-first OpenAPI documentation generator for Go frameworks (49★).",
+        "bullets": [
+          "Built a reflection-based system to derive API schemas directly from structs and route definitions.",
+          "Eliminated reliance on comment-based tools (e.g., Swaggo), preventing documentation drift.",
+          "Generated OpenAPI 3.0 specs and Swagger UI dynamically at runtime.",
+          "Designed modular, framework-agnostic architecture with adapter support (e.g., Echo)."
+        ]
+      },
+      {
+        "name": "Home Server Infrastructure (Proxmox Cluster)",
+        "start": "2024",
+        "end": "Present",
+        "bullets": [
+          "Built and operated a 2-node Proxmox cluster from two home machines (20 vCPU, 96GB RAM, 5TB storage, 2 GPUs) for self-hosting and hands-on infrastructure practice.",
+          "Configured physical networking: router NAT port forwarding, DHCP reservation, switching, and Wi-Fi mesh setup.",
+          "Provisioned reusable VM/LXC templates and provided VPS environments with access control for student club members.",
+          "Set up domain and DNS management with Cloudflare, and deployed Nginx Proxy Manager for reverse proxy routing.",
+          "Hosted internal databases (MongoDB, PostgreSQL) and ran a 3-VM Kubernetes cluster for educational workloads."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Ho Chi Minh University of Technology",
+        "degree": "Bachelor of Computer Science",
+        "location": "HCMC, Vietnam",
+        "start": "Oct 2019",
+        "end": "Apr 2024"
+      }
+    ],
+    "languages": [
+      {
+        "language": "English",
+        "fluency": "Basic working proficiency"
+      }
+    ]
+  },
+  "left_out": [],
+  "built_at": "2026-01-01T00:00:00Z",
+  "documents_hash": ""
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "5f2a1c9e-0000-4000-8000-000000000001",
+    "text": "Backend Engineer (Go)",
+    "hostedUrl": "https://jobs.lever.co/globex/5f2a1c9e-0000-4000-8000-000000000001",
+    "applyUrl": "https://jobs.lever.co/globex/5f2a1c9e-0000-4000-8000-000000000001/apply",
+    "categories": {"location": "Ho Chi Minh City", "team": "Platform", "commitment": "Full-time", "allLocations": ["Ho Chi Minh City"]},
+    "workplaceType": "hybrid",
+    "descriptionPlain": "Globex is a payments company. You will build Go services that move money between banks.",
+    "description": "<div>Globex is a payments company.</div>",
+    "lists": [
+      {"text": "Requirements", "content": "<li>3+ years of Go</li><li>PostgreSQL</li>"}
+    ],
+    "additionalPlain": "We offer remote-friendly hours."
+  },
+  {
+    "id": "5f2a1c9e-0000-4000-8000-000000000002",
+    "text": "Head of Sales",
+    "hostedUrl": "https://jobs.lever.co/globex/5f2a1c9e-0000-4000-8000-000000000002",
+    "categories": {"location": "London", "team": "Sales"},
+    "workplaceType": "onsite",
+    "descriptionPlain": "Lead our sales team."
+  },
+  {
+    "id": "5f2a1c9e-0000-4000-8000-000000000003",
+    "text": "Site Reliability Engineer",
+    "hostedUrl": "https://jobs.lever.co/globex/5f2a1c9e-0000-4000-8000-000000000003",
+    "categories": {"allLocations": ["Remote", "Singapore"]},
+    "workplaceType": "remote",
+    "descriptionPlain": "Keep the payment rails up. Kubernetes, Terraform, on-call."
+  }
+]

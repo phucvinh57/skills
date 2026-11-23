@@ -1,0 +1,21 @@
+{
+  "jobPostingInfo": {
+    "id": "0000000000000000000000000000a001",
+    "title": "Site Reliability Engineer",
+    "jobDescription": "<p>Acme runs the payment rails for small shops across the region. We are looking for a Site Reliability Engineer to keep them up.</p><p></p><p><b>What You&#39;ll Be Doing:</b></p><ul><li><p>Run Kubernetes clusters on two clouds.</p></li><li><p>Own the on-call rotation and the postmortems.</p></li></ul><p><b>What We Need to See:</b></p><ul><li><p>5+ years operating Linux services in production.</p></li><li><p>Terraform and Go.</p></li></ul>",
+    "location": "US, CA, Remote",
+    "additionalLocations": ["US, TX, Remote", "US, NY, Remote"],
+    "postedOn": "Posted 30+ Days Ago",
+    "startDate": "2026-10-01",
+    "timeType": "Full time",
+    "jobReqId": "JR1000003",
+    "jobPostingId": "Site-Reliability-Engineer_JR1000003",
+    "jobPostingSiteId": "External",
+    "canApply": true,
+    "posted": true,
+    "externalUrl": "https://acme.wd5.myworkdayjobs.com/External/job/US-CA-Remote/Site-Reliability-Engineer_JR1000003"
+  },
+  "hiringOrganization": { "name": "Acme Corp", "url": "" },
+  "similarJobs": [],
+  "userAuthenticated": false
+}

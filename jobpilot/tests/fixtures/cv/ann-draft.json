@@ -1,0 +1,28 @@
+{
+  "basics": {"name": "Ann  Lee", "headline": "Backend engineer", "email": "ann@lee.dev", "phone": "+84912345678",
+             "location": "Hanoi", "github": "https://github.com/annlee/", "linkedin": "", "website": ""},
+  "summary": ["Backend engineer in Hanoi working in Rust and C#", "Backend engineer with 10 years of experience", ""],
+  "skills": [
+    {"category": "Languages", "items": ["Rust", "Python", "C#", "Go"]},
+    {"category": "Infrastructure", "items": ["PostgreSQL", "k8s", "Docker", "rust"]}
+  ],
+  "experience": [
+    {"company": "Acme Corp", "position": "Senior Engineer", "location": "Hanoi", "url": "", "start": "Jan 2021", "end": "Present",
+     "bullets": ["Cut API latency by 40% for 3 teams by moving hot paths to Rust.",
+                 "Ran PostgreSQL and Kubernetes for the payments platform.",
+                 "Saved $7M a year in cloud costs."], "groups": []},
+    {"company": "Initech", "position": "Engineer", "location": "", "url": "", "start": 2019, "end": 2020,
+     "bullets": "Built internal billing tools in Python.", "groups": []},
+    {"company": "Globex", "position": "CTO", "location": "", "url": "", "start": "2010", "end": "2014", "bullets": [], "groups": []}
+  ],
+  "projects": [
+    {"name": "Ferry", "role": "maintainer", "url": "https://github.com/annlee/ferry", "start": "2022", "end": "",
+     "intro": "An open-source job queue for Rust with 300+ stars.", "bullets": ["Used by 2 companies."]}
+  ],
+  "education": [
+    {"institution": "Hanoi University of Science", "degree": "BSc Computer Science", "location": "", "gpa": "",
+     "start": "2015", "end": "2019", "bullets": []}
+  ],
+  "certifications": [],
+  "languages": [{"language": "English", "fluency": "fluent"}]
+}

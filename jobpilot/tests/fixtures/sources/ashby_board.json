@@ -1,0 +1,35 @@
+{
+  "apiVersion": "1",
+  "jobs": [
+    {
+      "id": "7b1d0000-0000-4000-8000-0000000000a1",
+      "title": "Staff Software Engineer, Infrastructure",
+      "location": "Remote - EMEA",
+      "isRemote": true,
+      "isListed": true,
+      "department": "Engineering",
+      "jobUrl": "https://jobs.ashbyhq.com/initech/7b1d0000-0000-4000-8000-0000000000a1",
+      "applyUrl": "https://jobs.ashbyhq.com/initech/7b1d0000-0000-4000-8000-0000000000a1/application",
+      "descriptionPlain": "Initech makes workflow software. You will own the storage layer written in Rust.",
+      "compensation": {"compensationTierSummary": "$180K - $220K"}
+    },
+    {
+      "id": "7b1d0000-0000-4000-8000-0000000000a2",
+      "title": "Product Designer",
+      "location": "Austin, TX",
+      "isRemote": false,
+      "isListed": true,
+      "jobUrl": "https://jobs.ashbyhq.com/initech/7b1d0000-0000-4000-8000-0000000000a2",
+      "descriptionPlain": "Design things."
+    },
+    {
+      "id": "7b1d0000-0000-4000-8000-0000000000a3",
+      "title": "Backend Engineer (unlisted)",
+      "location": "Remote",
+      "isRemote": true,
+      "isListed": false,
+      "jobUrl": "https://jobs.ashbyhq.com/initech/7b1d0000-0000-4000-8000-0000000000a3",
+      "descriptionPlain": "Not public."
+    }
+  ]
+}

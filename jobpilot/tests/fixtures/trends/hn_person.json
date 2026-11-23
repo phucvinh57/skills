@@ -1,0 +1,5 @@
+{"nbHits": 4, "hits": [
+  {"objectID": "61", "title": "Ada Example: every company will run an AI factory", "url": "{{BASE}}/interview", "points": 240, "num_comments": 80, "created_at_i": 1794250000},
+  {"objectID": "62", "title": "Ada Example on the future of chips (video)", "url": "{{BASE}}/video", "points": 90, "num_comments": 12, "created_at_i": 1794100000},
+  {"objectID": "63", "title": "An example of Ada, the language", "url": "{{BASE}}/ada-lang", "points": 50, "num_comments": 5, "created_at_i": 1794050000}
+]}

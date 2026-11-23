@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workzag-jobs>
+<position>
+    <id>2885001</id>
+    <subcompany>Acme GmbH</subcompany>
+    <office>Berlin</office>
+    <additionalOffices>
+        <office>Munich</office>
+    </additionalOffices>
+    <department>Product &amp; Tech</department>
+    <recruitingCategory>Engineering</recruitingCategory>
+    <name>Senior Backend Engineer (d/f/m)</name>
+    <jobDescriptions>
+        <jobDescription>
+            <name>Your mission</name>
+            <value><![CDATA[<p>Build the anvil ordering platform in <strong>Kotlin</strong>.</p><ul><li>Own services end to end</li></ul>]]></value>
+        </jobDescription>
+        <jobDescription>
+            <name>Your profile</name>
+            <value><![CDATA[<ul><li>5+ years with JVM backends</li><li>PostgreSQL &amp; Kafka</li></ul>]]></value>
+        </jobDescription>
+    </jobDescriptions>
+    <employmentType>permanent</employmentType>
+    <seniority>experienced</seniority>
+    <schedule>full-time</schedule>
+    <yearsOfExperience>5-7</yearsOfExperience>
+    <occupation>software_and_web_development</occupation>
+    <occupationCategory>it_software</occupationCategory>
+    <createdAt>2026-11-11T17:43:42+00:00</createdAt>
+</position>
+<position>
+    <id>2885002</id>
+    <office>Berlin</office>
+    <department>Go to Market</department>
+    <name>Business Development Representative (d/f/m)</name>
+    <jobDescriptions></jobDescriptions>
+    <employmentType>permanent</employmentType>
+    <seniority>entry-level</seniority>
+    <schedule>full-time</schedule>
+    <createdAt>2026-11-11T10:53:10+00:00</createdAt>
+</position>
+<position>
+    <id>2885003</id>
+    <office>Remote</office>
+    <department>Product &amp; Tech</department>
+    <name>Data Engineer</name>
+    <jobDescriptions/>
+    <employmentType>permanent</employmentType>
+    <seniority>experienced</seniority>
+    <schedule>part-time</schedule>
+    <createdAt>2026-11-10T10:53:10+00:00</createdAt>
+</position>
+<position>
+    <id>../2885004</id>
+    <office>Berlin</office>
+    <name>Bad id</name>
+</position>
+</workzag-jobs>

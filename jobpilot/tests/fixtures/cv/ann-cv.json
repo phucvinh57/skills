@@ -1,0 +1,18 @@
+{
+  "basics": {"name": "Ann Lee", "headline": "Senior Backend Engineer", "email": "ann@lee.dev", "phone": "+84 912 345 678",
+             "location": "Hanoi", "github": "github.com/annlee"},
+  "sections": ["summary", "skills", "experience", "projects", "education", "languages"],
+  "summary": ["Backend engineer building **Rust** services on Kubernetes and PostgreSQL.",
+              "Maintainer of [Ferry](https://github.com/annlee/ferry), an open-source job queue with 300+ stars."],
+  "skills": [{"category": "Languages", "items": ["Rust", "C#"]},
+             {"category": "Infrastructure", "items": ["Kubernetes", "PostgreSQL", "Docker"]}],
+  "experience": [
+    {"company": "Acme Corp", "position": "Senior Engineer", "location": "Hanoi", "start": "Jan 2021", "end": "Present",
+     "bullets": ["Cut API latency by **40%** for 3 teams by moving hot paths to Rust.",
+                 "Operated PostgreSQL and Kubernetes for the _payments_ platform."]}
+  ],
+  "projects": [{"name": "Ferry", "role": "maintainer", "url": "github.com/annlee/ferry", "start": "2022",
+                "intro": "Open-source job queue for Rust, used by 2 companies."}],
+  "education": [{"institution": "Hanoi University of Science", "degree": "BSc Computer Science", "start": "2015", "end": "2019"}],
+  "languages": [{"language": "English", "fluency": "fluent"}]
+}

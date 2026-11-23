@@ -1,0 +1,82 @@
+{
+  "offers": [
+    {
+      "id": 2800001,
+      "guid": "a0001",
+      "slug": "backend-engineer",
+      "title": "Backend Engineer",
+      "company_name": "Acme",
+      "careers_url": "https://careers.acme.test/o/backend-engineer",
+      "careers_apply_url": "https://careers.acme.test/o/backend-engineer/c/new",
+      "location": "Amsterdam, Noord-Holland, Netherlands",
+      "city": "Amsterdam",
+      "country": "Netherlands",
+      "remote": false,
+      "hybrid": true,
+      "on_site": false,
+      "department": "Technology",
+      "description": "<p style=\"text-align:start;\">At Acme we make anvils easy to order.</p><p><strong>Take ownership</strong></p><ul><li><p>Build our order API in Go.</p></li></ul>",
+      "requirements": "<ul><li><p>You have shipped Go services.</p></li><li><p>You know PostgreSQL.</p></li></ul>",
+      "published_at": "2026-11-11 13:21:40 UTC",
+      "salary": {
+        "min": "60000",
+        "max": "80000",
+        "period": "year",
+        "currency": "EUR"
+      },
+      "status": "published"
+    },
+    {
+      "id": 2800002,
+      "slug": "account-manager",
+      "title": "Account Manager",
+      "company_name": "",
+      "careers_url": "https://evil.test/redirect?to=x",
+      "location": "",
+      "city": "Utrecht",
+      "country": "Netherlands",
+      "remote": false,
+      "description": "<p>Sell anvils.</p>",
+      "requirements": "",
+      "published_at": "2026-11-10 08:00:00 UTC",
+      "salary": {
+        "min": null,
+        "max": null,
+        "period": null,
+        "currency": null
+      }
+    },
+    {
+      "id": 2800003,
+      "slug": "platform-engineer",
+      "title": "Platform Engineer",
+      "company_name": "Acme",
+      "careers_url": "ftp://careers.acme.test/o/platform-engineer",
+      "location": "",
+      "city": "",
+      "country": "",
+      "remote": true,
+      "description": "<p>Run our Kubernetes clusters.</p>",
+      "requirements": "<p>Terraform</p>",
+      "published_at": "2026-11-09 08:00:00 UTC"
+    },
+    {
+      "id": 2800005,
+      "slug": "data-analyst",
+      "title": "Data Analyst",
+      "company_name": "Acme",
+      "careers_url": "https://10.0.0.5/o/data-analyst",
+      "location": "Amsterdam",
+      "remote": false,
+      "description": "",
+      "requirements": "<p> </p>",
+      "published_at": "2026-11-08 08:00:00 UTC"
+    },
+    {
+      "id": 2800004,
+      "slug": "",
+      "title": "No address",
+      "description": "<p>x</p>"
+    }
+  ]
+}

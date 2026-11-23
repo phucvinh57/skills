@@ -1,0 +1,2 @@
+Side project: Ferry, an open-source job queue for Rust (github.com/annlee/ferry), maintainer since 2022.
+Ferry has 300+ stars and is used by 2 companies.
